@@ -3,9 +3,11 @@
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import HeroContent from "./HeroContent";
+import { useWindowDimensions } from "@/hooks/useWindowDimensions";
 
 const HeroSection = () => {
   const aboutSectionRef = useRef<HTMLDivElement>(null);
+  const dimensions = useWindowDimensions();
 
   const scrollToAbout = () => {
     aboutSectionRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -29,13 +31,13 @@ const HeroSection = () => {
           <motion.div
             key={i}
             initial={{
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
+              x: Math.random() * dimensions.width,
+              y: Math.random() * dimensions.height,
               opacity: 0,
             }}
             animate={{
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
+              x: Math.random() * dimensions.width,
+              y: Math.random() * dimensions.height,
               opacity: [0, 0.8, 0],
             }}
             transition={{

@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-export default function Loading() {
+const LoadingScreen = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [progress, setProgress] = useState(0);
 
@@ -68,4 +68,6 @@ export default function Loading() {
       </div>
     </div>
   );
-}
+};
+
+export default LoadingScreen;

@@ -3,6 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import { useProjectVariants } from "@/hooks/useProjectVariants";
 
 const projects = [
   {
@@ -37,62 +38,8 @@ const projects = [
 const ProjectList = () => {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true });
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.5,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: (index: number) => ({
-      opacity: 0,
-      y: 100,
-      x: index % 2 === 0 ? -100 : 100,
-      scale: 0.8,
-    }),
-    visible: {
-      opacity: 1,
-      y: 0,
-      x: 0,
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 20,
-        duration: 0.8,
-      },
-    },
-  };
-
-  const imageVariants = {
-    hidden: { scale: 1.2, opacity: 0 },
-    visible: {
-      scale: 1,
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut",
-      },
-    },
-  };
-
-  const contentVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        delay: 0.3,
-      },
-    },
-  };
+  const { containerVariants, itemVariants, imageVariants, contentVariants } =
+    useProjectVariants();
 
   return (
     <motion.div
@@ -117,7 +64,7 @@ const ProjectList = () => {
                 src={project.image}
                 alt={project.title}
                 className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-110"
-                whileHover={{ scale: 1.05 }}
+                variants={imageVariants}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-gray-950/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
@@ -125,13 +72,13 @@ const ProjectList = () => {
           <div className="w-full md:w-1/2 space-y-8">
             <motion.h3
               className="text-2xl font-bold text-white"
-              whileHover={{ scale: 1.05 }}
+              variants={contentVariants}
             >
               {project.title}
             </motion.h3>
             <motion.p
               className="text-gray-300 leading-relaxed"
-              whileHover={{ x: 10 }}
+              variants={contentVariants}
             >
               {project.description}
             </motion.p>
@@ -143,7 +90,7 @@ const ProjectList = () => {
                 <motion.span
                   key={tech}
                   className="px-3 py-1 bg-gray-900 text-gray-300 rounded-full text-sm hover:bg-gray-800 transition-colors"
-                  whileHover={{ scale: 1.1, backgroundColor: "#1f2937" }}
+                  variants={contentVariants}
                 >
                   {tech}
                 </motion.span>
@@ -155,7 +102,7 @@ const ProjectList = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-gray-300 hover:text-blue-400 transition-colors"
-                whileHover={{ scale: 1.1, x: 5 }}
+                variants={contentVariants}
               >
                 <FaGithub className="text-xl" />
                 <span>GitHub</span>
@@ -165,7 +112,7 @@ const ProjectList = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-gray-300 hover:text-blue-400 transition-colors"
-                whileHover={{ scale: 1.1, x: 5 }}
+                variants={contentVariants}
               >
                 <FaExternalLinkAlt className="text-xl" />
                 <span>Demo</span>
