@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     siteName: "김민규 포트폴리오",
     images: [
       {
-        url: "/썸내일.png",
+        url: "/images/썸내일.png",
         width: 1200,
         height: 630,
         alt: "김민규 포트폴리오 미리보기 이미지",
