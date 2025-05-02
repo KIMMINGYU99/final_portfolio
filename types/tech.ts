@@ -21,10 +21,3 @@ export type TechStackSectionProps = {
   frontendTechs: TechStackItem[];
   backendTechs: TechStackItem[];
 };
-
-export type ContactItemProps = {
-  icon: ReactNode;
-  content: ReactNode;
-  href?: string;
-  isLink?: boolean;
-};

@@ -32,12 +32,6 @@ const Header = () => {
             >
               PROJECTS
             </button>
-            <button
-              onClick={() => scrollToSection("about")}
-              className="text-gray-600 hover:text-gray-900"
-            >
-              ABOUT
-            </button>
           </RowBox>
         </RowBox>
       </div>

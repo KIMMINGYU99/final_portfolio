@@ -2,9 +2,10 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { useLoading } from "@/context/LoadingContext";
 
 const LoadingScreen = () => {
-  const [isVisible, setIsVisible] = useState(true);
+  const { isLoading, setIsLoading } = useLoading();
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -14,43 +15,41 @@ const LoadingScreen = () => {
           clearInterval(interval);
           return 100;
         }
-        return prevProgress + 1;
+        return prevProgress + 2;
       });
-    }, 30);
+    }, 20);
 
-    // 100% 도달 후 1초 더 표시
+    // 100% 도달 후 0.5초 더 표시
     const timer = setTimeout(() => {
-      setIsVisible(false);
-    }, 3500);
+      setIsLoading(false);
+    }, 1500);
 
     return () => {
       clearInterval(interval);
       clearTimeout(timer);
     };
-  }, []);
+  }, [setIsLoading]);
 
-  if (!isVisible) return null;
+  if (!isLoading) return null;
 
   return (
-    <div className="fixed inset-0 bg-white z-50 flex items-center justify-center">
+    <div className="fixed inset-0 bg-black z-50 flex items-center justify-center">
       <div className="text-center w-full max-w-md px-4">
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{
-            duration: 0.5,
+            duration: 0.3,
             ease: "easeOut",
           }}
           className="mb-8"
         >
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            Portfolio
-          </h1>
+          <h1 className="text-4xl font-bold text-white">Portfolio</h1>
         </motion.div>
 
-        <div className="w-full bg-gray-200 rounded-full h-2.5 mb-4">
+        <div className="w-full bg-gray-700 rounded-full h-2.5 mb-4">
           <motion.div
-            className="bg-gradient-to-r from-blue-600 to-purple-600 h-2.5 rounded-full"
+            className="bg-white h-2.5 rounded-full"
             initial={{ width: "0%" }}
             animate={{ width: `${progress}%` }}
             transition={{ duration: 0.1 }}
@@ -58,10 +57,10 @@ const LoadingScreen = () => {
         </div>
 
         <motion.p
-          className="text-gray-600 font-medium"
+          className="text-white font-medium"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.4 }}
+          transition={{ delay: 0.2 }}
         >
           {progress}%
         </motion.p>
