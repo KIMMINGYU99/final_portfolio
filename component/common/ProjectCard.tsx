@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ProjectCardProps } from "@/types/project";
-import Tag from "@/components/common/Tag";
-import Card from "@/components/common/Card";
+import Tag from "@/component/common/Tag";
+import Card from "@/component/common/Card";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 const ProjectCard = ({ project, index, variants }: ProjectCardProps) => {

@@ -1,6 +1,6 @@
 "use client";
 
-import RowBox from "@/components/common/RowBox";
+import RowBox from "@/component/common/RowBox";
 import Link from "next/link";
 import { useScroll } from "@/hooks/useScroll";
 

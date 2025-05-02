@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 
-const Loading = dynamic(() => import("@/components/loading/LoadingScreen"), {
+const Loading = dynamic(() => import("@/component/loading/LoadingScreen"), {
   ssr: false,
 });
 

@@ -1,9 +1,9 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/layout/header/Header";
-import Footer from "@/components/layout/footer/Footer";
-import ClientLayout from "@/components/layout/ClientLayout";
-import LoadingScreen from "@/components/loading/LoadingScreen";
+import Header from "@/component/layout/header/Header";
+import Footer from "@/component/layout/footer/Footer";
+import ClientLayout from "@/component/layout/ClientLayout";
+import LoadingScreen from "@/component/loading/LoadingScreen";
 import { Suspense } from "react";
 import { LoadingProvider } from "@/context/LoadingContext";
 

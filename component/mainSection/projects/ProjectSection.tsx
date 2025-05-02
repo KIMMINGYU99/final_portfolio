@@ -1,6 +1,6 @@
 "use client";
 
-import Section from "@/components/common/Section";
+import Section from "@/component/common/Section";
 import ProjectList from "./ProjectList";
 
 const ProjectSection = () => {

@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef, memo } from "react";
 import { useProjectVariants } from "@/hooks/useProjectVariants";
 import { projects } from "@/data/projects";
-import ProjectCard from "@/components/common/ProjectCard";
+import ProjectCard from "@/component/common/ProjectCard";
 import { AnimationVariants } from "@/types/animation";
 import { Project } from "@/types/project";
 
