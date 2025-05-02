@@ -23,9 +23,9 @@ const ReviewModal = ({ isOpen, onClose }: ReviewModalProps) => {
         className="fixed inset-0 bg-transparent z-50 pointer-events-none"
         onClick={onClose}
       />
-      <article className="fixed bottom-8 right-25 bg-white rounded-lg w-[600px] h-[800px] flex flex-col shadow-xl pointer-events-auto">
+      <article className="fixed bottom-8 right-32 bg-white rounded-lg w-[600px] h-[800px] flex flex-col shadow-xl pointer-events-auto">
         <header className="p-4 border-b flex justify-between items-center">
-          <h2 className="text-xl font-bold">Review</h2>
+          <h2 className="text-xl font-bold text-black">Review</h2>
           <button
             onClick={onClose}
             className="text-gray-500 hover:text-gray-700"

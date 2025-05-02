@@ -25,7 +25,7 @@ const ReviewForm = ({ onSubmit }: ReviewFormProps) => {
           value={formData.name}
           onChange={handleChange}
           placeholder="이름"
-          className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
           required
           aria-label="이름 입력"
         />
@@ -37,7 +37,7 @@ const ReviewForm = ({ onSubmit }: ReviewFormProps) => {
           value={formData.message}
           onChange={handleChange}
           placeholder="메시지를 입력하세요..."
-          className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
           required
           aria-label="메시지 입력"
         />
