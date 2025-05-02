@@ -16,19 +16,19 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 bg-white shadow-md z-[1000] transition-all duration-300 ${
-        isScrolled ? "bg-gray-900/90 backdrop-blur-sm" : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-300 ${
+        isScrolled ? "-translate-y-full" : "translate-y-0"
       }`}
     >
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-4 py-8">
         <RowBox className="justify-between items-center">
-          <Link href="/" className="text-2xl font-bold text-gray-800">
+          <Link href="/" className="text-4xl font-bold text-white">
             PORTFOLIO
           </Link>
-          <RowBox className="space-x-6">
+          <RowBox className="space-x-8">
             <button
               onClick={() => scrollToSection("projects")}
-              className="text-gray-600 hover:text-gray-900"
+              className="text-2xl text-white hover:text-gray-300 transition-colors"
             >
               PROJECTS
             </button>

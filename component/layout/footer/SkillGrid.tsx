@@ -1,4 +1,4 @@
-import { SkillGridProps } from "../../../types/footerType";
+import { SkillGridProps } from "@/types/tech";
 import SkillIcon from "./SkillIcon";
 
 const SkillGrid = ({ title, techs }: SkillGridProps) => {

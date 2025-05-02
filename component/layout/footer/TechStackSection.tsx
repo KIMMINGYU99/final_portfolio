@@ -1,6 +1,6 @@
+import { TechStackSectionProps } from "@/types/tech";
 import ColumnBox from "../../common/ColumnBox";
 import SkillGrid from "./SkillGrid";
-import { TechStackSectionProps } from "../../../types/footerType";
 
 const TechStackSection = ({
   frontendTechs,

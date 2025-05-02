@@ -7,7 +7,7 @@ import {
   SiExpress,
   SiMysql,
 } from "react-icons/si";
-import { TechStackItem } from "../types/footerType";
+import { TechStackItem } from "@/types/tech";
 
 export const frontendTechs: TechStackItem[] = [
   {
@@ -16,7 +16,7 @@ export const frontendTechs: TechStackItem[] = [
     url: "https://developer.mozilla.org/en-US/docs/Web/HTML",
   },
   {
-    icon: <FaCss3Alt className="text-blue-400" />,
+    icon: <FaCss3Alt className="text-blue-500" />,
     name: "CSS",
     url: "https://developer.mozilla.org/en-US/docs/Web/CSS",
   },
@@ -36,7 +36,7 @@ export const frontendTechs: TechStackItem[] = [
     url: "https://www.typescriptlang.org/",
   },
   {
-    icon: <FaReact className="text-blue-500" />,
+    icon: <FaReact className="text-blue-400" />,
     name: "React",
     url: "https://react.dev/",
   },
@@ -54,7 +54,7 @@ export const backendTechs: TechStackItem[] = [
     url: "https://nodejs.org/",
   },
   {
-    icon: <SiMysql className="text-3xl text-blue-600" />,
+    icon: <SiMysql className="text-blue-600" />,
     name: "MySQL",
     url: "https://www.mysql.com/",
   },
