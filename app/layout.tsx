@@ -16,7 +16,7 @@ export const metadata = {
     url: "https://final-portfolio-ruddy-five.vercel.app",
     images: [
       {
-        url: "/images/thumbnail.png",
+        url: "https://final-portfolio-ruddy-five.vercel.app/images/thumbnail.png",
         width: 1200,
         height: 630,
         alt: "김민규 포트폴리오 미리보기 이미지",
