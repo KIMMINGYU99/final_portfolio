@@ -9,10 +9,10 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "김민규 | 포트폴리오",
-  description: "신입 프론트엔드 개발자 김민규의 포트폴리오입니다.",
+  description: "신입 개발자 김민규의 포트폴리오입니다.",
   openGraph: {
     title: "김민규 | 포트폴리오",
-    description: "신입 프론트엔드 개발자 김민규의 포트폴리오입니다.",
+    description: "신입 개발자 김민규의 포트폴리오입니다.",
     url: "https://final-portfolio-ruddy-five.vercel.app",
     images: [
       {
