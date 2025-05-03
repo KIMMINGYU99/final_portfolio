@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef, memo } from "react";
 import { useProjectVariants } from "@/hooks/useProjectVariants";
 import { projects } from "@/data/projects";
-import ProjectCard from "@/component/common/ProjectCard";
+import ProjectCard from "@/components/server/common/ProjectCard";
 import { AnimationVariants } from "@/types/animation";
 import { Project } from "@/types/project";
 
@@ -19,7 +19,7 @@ const ProjectList = memo(() => {
       variants={variants.containerVariants}
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
-      className="space-y-64 py-32"
+      className="space-y-8 py-8"
       role="list"
     >
       {(projects as Project[]).map((project, index) => (

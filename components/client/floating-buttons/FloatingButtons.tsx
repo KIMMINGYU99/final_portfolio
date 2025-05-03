@@ -1,11 +1,10 @@
 "use client";
 
 import ScrollToTop from "./ScrollToTop";
-
-import ColumnBox from "../common/ColumnBox";
+import ColumnBox from "@/components/server/common/ColumnBox";
 import { useModal } from "@/hooks/useModal";
-import ReviewButton from "../review/ReviewButton";
-import ReviewModal from "../review/ReviewModal";
+import ReviewButton from "@/components/client/review/ReviewButton";
+import ReviewModal from "@/components/client/review/ReviewModal";
 
 const FloatingButtons = () => {
   const {

@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useLoading } from "@/context/LoadingContext";
-import ParticleBackground from "@/component/common/animation/ParticleBackground";
+import ParticleBackground from "@/components/server/common/animation/ParticleBackground";
 import HeroContent from "./HeroContent";
 import { memo } from "react";
 

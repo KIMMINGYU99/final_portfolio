@@ -3,13 +3,15 @@
 import { FaTimes } from "react-icons/fa";
 import { ReviewModalProps } from "@/types/review";
 import ReviewMessageList from "./ReviewMessageList";
-import ReviewForm from "./ReviewForm";
+import ReviewFormModal from "./ReviewFormModal";
 import { useModal } from "@/hooks/useModal";
 import { useReview } from "@/hooks/useReview";
+import { useRouter } from "next/navigation";
 
 const ReviewModal = ({ isOpen, onClose }: ReviewModalProps) => {
   const { mounted } = useModal();
   const { messages, addMessage } = useReview();
+  const router = useRouter();
 
   const handleSubmit = (formData: { name: string; message: string }) => {
     addMessage(formData.name, formData.message);
@@ -35,10 +37,20 @@ const ReviewModal = ({ isOpen, onClose }: ReviewModalProps) => {
           </button>
         </header>
 
-        <ReviewMessageList messages={messages} />
+        <div className="flex-1 flex flex-col overflow-auto p-4 pb-0">
+          <div className="flex-1 flex flex-col justify-end">
+            <ReviewMessageList messages={messages.slice(0, 5)} />
+            <button
+              onClick={() => router.push("/review")}
+              className="w-40 mx-auto mt-4 mb-2 px-4 py-2 bg-gradient-to-r from-gray-700 to-gray-900 text-white rounded-lg hover:from-gray-800 hover:to-black transition-all duration-300"
+            >
+              더보러가기
+            </button>
+          </div>
+        </div>
 
-        <footer className="p-4 border-t">
-          <ReviewForm onSubmit={handleSubmit} />
+        <footer className="p-4 border-t py-2">
+          <ReviewFormModal onSubmit={handleSubmit} />
         </footer>
       </article>
     </>
