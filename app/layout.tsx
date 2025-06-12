@@ -8,6 +8,9 @@ import MainContent from "@/components/server/layout/MainContent";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
+  ),
   title: "김민규 | 포트폴리오",
   description: "신입 개발자 김민규의 포트폴리오입니다.",
   openGraph: {

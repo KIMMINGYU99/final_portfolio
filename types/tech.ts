@@ -1,9 +1,12 @@
 import { ReactNode } from "react";
 
-export type TechStackItem = {
+export type TechInfo = {
   icon: ReactNode;
-  name: string;
   url: string;
+};
+
+export type TechStackMap = {
+  [key: string]: TechInfo;
 };
 
 export type SkillIconProps = {
@@ -14,10 +17,11 @@ export type SkillIconProps = {
 
 export type SkillGridProps = {
   title: string;
-  techs: TechStackItem[];
+  skills: string[];
+  techMap: TechStackMap;
 };
 
 export type TechStackSectionProps = {
-  frontendTechs: TechStackItem[];
-  backendTechs: TechStackItem[];
+  frontendSkills: string[];
+  backendSkills: string[];
 };

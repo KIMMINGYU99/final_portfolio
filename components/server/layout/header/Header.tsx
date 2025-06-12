@@ -23,7 +23,7 @@ const Header = () => {
       <div className="container mx-auto px-4 py-8">
         <RowBox className="justify-between items-center">
           <Link href="/" className="text-4xl font-bold text-white">
-            Portfolio
+            KIMMINGYU
           </Link>
           <RowBox className="space-x-8">
             <button

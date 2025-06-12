@@ -1,71 +1,70 @@
-import { FaReact, FaHtml5, FaCss3Alt, FaJs, FaNodeJs } from "react-icons/fa";
-import {
-  SiNextdotjs,
-  SiTypescript,
-  SiTailwindcss,
-  SiNestjs,
-  SiExpress,
-  SiMysql,
-} from "react-icons/si";
-import { TechStackItem } from "@/types/tech";
+import React from "react";
+import { techIcons } from "@/components/client/TechIcons";
 
-export const frontendTechs: TechStackItem[] = [
-  {
-    icon: <FaHtml5 className="text-orange-500" />,
-    name: "HTML",
+type TechInfo = {
+  icon: React.ReactNode;
+  url: string;
+};
+
+type TechStackMap = {
+  [key: string]: TechInfo;
+};
+
+export const techStackMap: TechStackMap = {
+  HTML: {
+    icon: techIcons.HTML,
     url: "https://developer.mozilla.org/en-US/docs/Web/HTML",
   },
-  {
-    icon: <FaCss3Alt className="text-blue-500" />,
-    name: "CSS",
+  CSS: {
+    icon: techIcons.CSS,
     url: "https://developer.mozilla.org/en-US/docs/Web/CSS",
   },
-  {
-    icon: <SiTailwindcss className="text-cyan-500" />,
-    name: "Tailwind CSS",
+  "Tailwind CSS": {
+    icon: techIcons["Tailwind CSS"],
     url: "https://tailwindcss.com/",
   },
-  {
-    icon: <FaJs className="text-yellow-400" />,
-    name: "JavaScript",
+  JavaScript: {
+    icon: techIcons.JavaScript,
     url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
   },
-  {
-    icon: <SiTypescript className="text-blue-600" />,
-    name: "TypeScript",
+  TypeScript: {
+    icon: techIcons.TypeScript,
     url: "https://www.typescriptlang.org/",
   },
-  {
-    icon: <FaReact className="text-blue-400" />,
-    name: "React",
+  React: {
+    icon: techIcons.React,
     url: "https://react.dev/",
   },
-  {
-    icon: <SiNextdotjs className="text-white" />,
-    name: "Next.js",
+  "Next.js": {
+    icon: techIcons["Next.js"],
     url: "https://nextjs.org/",
   },
-];
-
-export const backendTechs: TechStackItem[] = [
-  {
-    icon: <FaNodeJs className="text-green-600" />,
-    name: "Node.js",
+  "Node.js": {
+    icon: techIcons["Node.js"],
     url: "https://nodejs.org/",
   },
-  {
-    icon: <SiMysql className="text-blue-600" />,
-    name: "MySQL",
+  MySQL: {
+    icon: techIcons.MySQL,
     url: "https://www.mysql.com/",
   },
-  {
-    icon: <SiExpress className="text-white" />,
-    name: "Express",
+  Express: {
+    icon: techIcons.Express,
     url: "https://expressjs.com/",
   },
-  {
-    icon: <SiNestjs className="text-red-500" />,
-    name: "NestJS",
+  NestJS: {
+    icon: techIcons.NestJS,
     url: "https://nestjs.com/",
   },
-];
+  Firebase: {
+    icon: techIcons.Firebase,
+    url: "https://firebase.google.com/",
+  },
+  Supabase: {
+    icon: techIcons.Supabase,
+    url: "https://supabase.com/",
+  },
+  Zustand: {
+    icon: techIcons.Zustand,
+    url: "https://zustand-demo.pmnd.rs/",
+  },
+};

@@ -1,10 +1,33 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import ProfileSection from "./ProfileSection";
-import TechStackSection from "./TechStackSection";
-import { frontendTechs, backendTechs } from "@/data/techStack";
+import TechStackSection from "@/components/client/TechStackSection";
+
+import { getSkillTypes, normalizeSkillName } from "@/utils/api";
 
 const Footer = () => {
+  const [frontendSkills, setFrontendSkills] = useState<string[]>([]);
+  const [backendSkills, setBackendSkills] = useState<string[]>([]);
+
+  useEffect(() => {
+    const fetchSkills = async () => {
+      try {
+        const [frontend, backend] = await Promise.all([
+          getSkillTypes("frontend"),
+          getSkillTypes("backend"),
+        ]);
+        setFrontendSkills(frontend.map((skill) => normalizeSkillName(skill.name)));
+        setBackendSkills(backend.map((skill) => normalizeSkillName(skill.name)));
+      } catch (error) {
+        console.error("Error fetching skills:", error);
+      }
+    };
+
+    fetchSkills();
+  }, []);
+
+
   return (
     <footer className="bg-black border-t border-gray-800">
       <div className="container mx-auto px-4 py-12">
@@ -12,8 +35,8 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row gap-8">
             <ProfileSection />
             <TechStackSection
-              frontendTechs={frontendTechs}
-              backendTechs={backendTechs}
+              frontendSkills={frontendSkills}
+              backendSkills={backendSkills}
             />
           </div>
         </div>
