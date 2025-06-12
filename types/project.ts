@@ -5,11 +5,14 @@ export type Project = {
   title: string;
   description: string;
   technologies: string[];
-  image: string;
+  thumbnail: string;
   github: string;
   demo: string;
-  featured?: boolean;
-  order?: number;
+  start_date: string;
+  end_date: string;
+  role: string;
+  status: string;
+  created_at: string;
 };
 
 export type ProjectCardProps = {

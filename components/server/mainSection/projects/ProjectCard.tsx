@@ -6,47 +6,58 @@ import { ProjectCardProps } from "@/types/project";
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
-    <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
-      <div className="relative h-48 w-full">
+    <div className="bg-gray-900/60 backdrop-blur-sm rounded-lg border border-gray-800 overflow-hidden hover:border-gray-700 transition-all duration-300 h-[500px] flex flex-col">
+      <div className="relative h-3/5 w-full">
         <Image
-          src={project.image}
+          src={
+            project.thumbnail
+              ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/project/${project.thumbnail}`
+              : `/images/${project.thumbnail}`
+          }
           alt={project.title}
           fill
           className="object-cover"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </div>
-      <div className="p-6 flex flex-col flex-grow">
-        <h3 className="text-xl font-bold mb-2 line-clamp-1">{project.title}</h3>
-        <p className="text-gray-600 mb-4 line-clamp-2">{project.description}</p>
-        <div className="flex flex-wrap gap-2 mb-4">
-          {project.technologies.map((tech) => (
-            <span
-              key={tech}
-              className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
-            >
-              {tech}
-            </span>
-          ))}
+      <div className="p-6 flex flex-col justify-between h-2/5 gap-4">
+        <div className="space-y-2">
+          <h3 className="text-xl font-bold mb-2 line-clamp-1 text-white">
+            {project.title}
+          </h3>
+          <p className="text-gray-400 line-clamp-3">{project.description}</p>
         </div>
-        <div className="flex gap-4 mt-auto">
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-gray-600 hover:text-gray-900"
-          >
-            <FaGithub />
-            <span>GitHub</span>
-          </a>
-          <a
-            href={project.demo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-gray-600 hover:text-gray-900"
-          >
-            <FaExternalLinkAlt />
-            <span>Demo</span>
-          </a>
+        <div className="space-y-3">
+          <div className="flex flex-wrap gap-2">
+            {(project.technologies ?? []).map((tech) => (
+              <span
+                key={tech}
+                className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+          <div className="flex gap-4">
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+            >
+              <FaGithub />
+              <span>GitHub</span>
+            </a>
+            <a
+              href={project.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
+            >
+              <FaExternalLinkAlt />
+              <span>Demo</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>

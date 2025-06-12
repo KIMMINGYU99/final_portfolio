@@ -1,13 +1,13 @@
 "use client";
 
-import Section from "@/components/server/common/Section";
-import ProjectList from "./ProjectList";
+import ProjectSwiper from "./ProjectSwiper";
 
 const ProjectSection = () => {
   return (
-    <Section id="projects" title="Projects" className="bg-black text-white">
-      <ProjectList />
-    </Section>
+    <section id="projects" className="py-20">
+      <h2 className="text-3xl font-bold text-center mb-10">프로젝트</h2>
+      <ProjectSwiper />
+    </section>
   );
 };
 

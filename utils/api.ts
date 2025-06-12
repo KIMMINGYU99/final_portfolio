@@ -1,5 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 import { Database } from "../types/supabase";
+import { Project } from "@/types/project";
+import { ProjectWithSkills } from "@/types/supabase";
 
 if (!process.env.NEXT_PUBLIC_SUPABASE_URL) {
   throw new Error("Missing env.NEXT_PUBLIC_SUPABASE_URL");
@@ -20,17 +22,50 @@ export const supabase = createClient<Database>(
 );
 
 // 프로젝트 관련 API
-export const getProjects = async () => {
-  const { data, error } = await supabase
+
+export const getProjects = async (): Promise<Project[]> => {
+  const { data: projectsWithSkills, error } = await supabase
     .from("projects")
     .select(
       `
       *,
-      project_skills!inner (skill_id),
-      skills!project_skills(name)
+      project_skills (skills (name))
     `
     )
-    .order("start_date", { ascending: false });
+    .order("id", { ascending: true });
+
+  if (error) throw error;
+
+  // 기술 스택 정보를 프로젝트 객체에 통합
+  const projects =
+    (projectsWithSkills as ProjectWithSkills[] | null)?.map((project) => ({
+      id: project.id,
+      title: project.title,
+      description: project.description,
+      thumbnail: project.thumbnail,
+      github: project.github,
+      demo: project.demo,
+      start_date: project.start_date,
+      end_date: project.end_date,
+      role: project.role,
+      status: project.status,
+      created_at: project.created_at,
+      technologies:
+        project.project_skills
+          ?.map((ps) => ps?.skills?.name)
+          .filter(
+            (name): name is string => name !== null && name !== undefined
+          ) || [],
+    })) || [];
+
+  return projects;
+};
+
+export const getProjectById = async (id: string) => {
+  const { data, error } = await supabase
+    .from("projects")
+    .select("*")
+    .eq("id", id);
 
   if (error) throw error;
   return data;
