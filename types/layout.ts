@@ -1,7 +1,6 @@
 import { ReactNode } from "react";
 
 export type ParticleBackgroundProps = {
-  isLoading: boolean;
   className?: string;
 };
 

@@ -1,5 +1,11 @@
 import { AnimationVariants } from "./animation";
 
+export type Skill = {
+  id: number;
+  name: string;
+  created_at?: string;
+};
+
 export type Project = {
   id: number;
   title: string;

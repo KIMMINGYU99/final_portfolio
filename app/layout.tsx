@@ -1,8 +1,5 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import LoadingScreen from "@/components/client/loading/LoadingScreen";
-import { Suspense } from "react";
-import { LoadingProvider } from "@/context/LoadingContext";
 import MainContent from "@/components/server/layout/MainContent";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -38,12 +35,7 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={inter.className}>
-        <LoadingProvider>
-          <Suspense fallback={null}>
-            <LoadingScreen />
-          </Suspense>
-          <MainContent>{children}</MainContent>
-        </LoadingProvider>
+        <MainContent>{children}</MainContent>
       </body>
     </html>
   );

@@ -3,10 +3,17 @@
 import Image from "next/image";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import { ProjectCardProps } from "@/types/project";
+import { useRouter } from "next/navigation";
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
+  const router = useRouter();
   return (
-    <div className="bg-gray-900/60 backdrop-blur-sm rounded-lg border border-gray-800 overflow-hidden hover:border-gray-700 transition-all duration-300 h-[500px] flex flex-col">
+    <div
+      onClick={() => {
+        router.push(`/project/${project.id.toString()}`);
+      }}
+      className="bg-gray-900/60 backdrop-blur-sm rounded-lg border border-gray-800 overflow-hidden hover:border-gray-700 transition-all duration-300 h-[500px] flex flex-col z-[1]"
+    >
       <div className="relative h-3/5 w-full">
         <Image
           src={
@@ -21,23 +28,21 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
         />
       </div>
       <div className="p-6 flex flex-col justify-between h-2/5 gap-4">
-        <div className="space-y-2">
-          <h3 className="text-xl font-bold mb-2 line-clamp-1 text-white">
-            {project.title}
-          </h3>
-          <p className="text-gray-400 line-clamp-3">{project.description}</p>
+        <h3 className="text-2xl font-bold line-clamp-1 text-white">
+          {project.title}
+        </h3>
+
+        <div className="flex flex-wrap gap-2">
+          {(project.technologies ?? []).map((tech) => (
+            <span
+              key={tech}
+              className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm"
+            >
+              {tech}
+            </span>
+          ))}
         </div>
-        <div className="space-y-3">
-          <div className="flex flex-wrap gap-2">
-            {(project.technologies ?? []).map((tech) => (
-              <span
-                key={tech}
-                className="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-sm"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
+        <div className="flex justify-between">
           <div className="flex gap-4">
             <a
               href={project.github}
@@ -58,6 +63,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
               <span>Demo</span>
             </a>
           </div>
+          <span>{project.status}</span>
         </div>
       </div>
     </div>

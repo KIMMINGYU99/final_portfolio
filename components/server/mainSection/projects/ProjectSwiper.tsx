@@ -57,7 +57,7 @@ const ProjectSwiper = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.5 }}
-      className="w-full px-4 md:px-8 lg:px-16 relative"
+      className="w-full px-4 md:px-8 lg:px-16 relative z-0"
     >
       <div className="relative">
         <Swiper
@@ -74,7 +74,7 @@ const ProjectSwiper = () => {
               return `<span class="${className}"></span>`;
             },
           }}
-          className="w-full min-h-[400px]"
+          className="w-full min-h-[400px] relative z-0"
           breakpoints={{
             0: {
               slidesPerView: 1,
@@ -99,9 +99,9 @@ const ProjectSwiper = () => {
               </div>
             </SwiperSlide>
           ))}
-          <div className="swiper-button-prev !w-10 !h-10 !text-white after:!text-2xl after:!font-bold" />
-          <div className="swiper-button-next !w-10 !h-10 !text-white after:!text-2xl after:!font-bold" />
-          <div className="swiper-pagination !absolute !bottom-0 !left-0 !right-0 !w-full !py-4 !z-10" />
+          <div className="swiper-button-prev !w-10 !h-10 !text-white after:!text-2xl after:!font-bold !z-[1]" />
+          <div className="swiper-button-next !w-10 !h-10 !text-white after:!text-2xl after:!font-bold !z-[1]" />
+          <div className="swiper-pagination !absolute !bottom-0 !left-0 !right-0 !w-full !py-4 !z-[1]" />
         </Swiper>
       </div>
     </motion.div>
