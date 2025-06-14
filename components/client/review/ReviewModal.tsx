@@ -1,20 +1,56 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { FaTimes } from "react-icons/fa";
-import { ReviewModalProps } from "@/types/review";
+import { TReviewModalProps } from "@/types/review";
 import ReviewMessageList from "./ReviewMessageList";
 import ReviewFormModal from "./ReviewFormModal";
 import { useModal } from "@/hooks/useModal";
-import { useReview } from "@/hooks/useReview";
 import { useRouter } from "next/navigation";
+import { addReview, getModalReview } from "@/utils/api";
+import { TReviewMessage } from "@/types/review";
 
-const ReviewModal = ({ isOpen, onClose }: ReviewModalProps) => {
+const ReviewModal = ({ isOpen, onClose }: TReviewModalProps) => {
   const { mounted } = useModal();
-  const { messages, addMessage } = useReview();
   const router = useRouter();
+  const [messages, setMessages] = useState<TReviewMessage[]>([]);
 
-  const handleSubmit = (formData: { name: string; message: string }) => {
-    addMessage(formData.name, formData.message);
+  // 모달 내부에서 좋아요 클릭 시 즉시 UI에 반영
+  const handleModalLike = (id: string) => {
+    setMessages((prev) =>
+      prev.map((msg) =>
+        msg.id === id ? { ...msg, likes: msg.likes + 1 } : msg
+      )
+    );
+  };
+
+  useEffect(() => {
+    const fetchReviews = async () => {
+      try {
+        const review = await getModalReview();
+        setMessages(review);
+      } catch (error) {
+        console.error("Error fetching reviews:", error);
+      }
+    };
+    if (isOpen) {
+      fetchReviews();
+      console.log(messages);
+    }
+  }, [isOpen]);
+
+  const handleSubmit = async (formData: {
+    author: string;
+    message: string;
+  }) => {
+    try {
+      await addReview(formData);
+      const review = await getModalReview();
+      setMessages(review);
+      onClose();
+    } catch (error) {
+      console.error("Error adding review:", error);
+    }
   };
 
   if (!mounted || !isOpen) return null;
@@ -39,7 +75,7 @@ const ReviewModal = ({ isOpen, onClose }: ReviewModalProps) => {
 
         <div className="flex-1 flex flex-col overflow-auto p-4 pb-0">
           <div className="flex-1 flex flex-col justify-end">
-            <ReviewMessageList messages={messages.slice(0, 5)} />
+            <ReviewMessageList messages={messages} onLike={handleModalLike} />
             <button
               onClick={() => router.push("/review")}
               className="w-40 mx-auto mt-4 mb-2 px-4 py-2 bg-gradient-to-r from-gray-700 to-gray-900 text-white rounded-lg hover:from-gray-800 hover:to-black transition-all duration-300"

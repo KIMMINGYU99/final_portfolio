@@ -1,12 +1,13 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { useReview } from "@/hooks/useReview";
-import { FaPaperPlane } from "react-icons/fa";
+import { useReviewStore } from "@/store/reviewStore";
+import { TReviewResponse } from "@/types/review";
+import { addReview, getReview } from "@/utils/api";
 
 const ReviewForm = () => {
-  const { addMessage } = useReview();
-  const [name, setName] = useState("");
+  const { setMessages } = useReviewStore();
+  const [author, setName] = useState("");
   const [message, setMessage] = useState("");
   const [buttonSize, setButtonSize] = useState(80);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -18,12 +19,24 @@ const ReviewForm = () => {
     }
   }, [message]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name.trim() || !message.trim()) return;
-    addMessage(name, message);
-    setName("");
-    setMessage("");
+    if (!author.trim() || !message.trim()) return;
+
+    try {
+      await addReview({
+        author: author.trim(),
+        message: message.trim(),
+      });
+
+      const review = await getReview(0);
+      setMessages(review);
+      
+      setName("");
+      setMessage("");
+    } catch (error) {
+      console.error('Error submitting review:', error);
+    }
   };
 
   return (
@@ -32,15 +45,15 @@ const ReviewForm = () => {
         {/* 이름 입력 */}
         <div>
           <label
-            htmlFor="name"
+            htmlFor="author"
             className="block text-sm font-medium text-white mb-2"
           >
             이름
           </label>
           <input
             type="text"
-            id="name"
-            value={name}
+            id="author"
+            value={author}
             onChange={(e) => setName(e.target.value)}
             className="w-full px-4 py-2 bg-white border border-gray-300 rounded-lg text-black focus:outline-none focus:border-blue-500"
             placeholder="이름을 입력하세요"

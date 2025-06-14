@@ -1,26 +1,32 @@
-export type ReviewMessage = {
+export type TReviewMessage = {
   id: string;
-  name: string;
+  author: string;
   message: string;
-  date: Date;
+  date: string;
   likes: number;
 };
 
-export type ReviewMessageProps = {
-  name: string;
+export type TReviewMessageProps = {
+  author: string;
   message: string;
-  date: Date;
 };
 
-export type ReviewModalProps = {
+export type TReviewModalProps = {
   isOpen: boolean;
   onClose: () => void;
 };
 
-export type ReviewFormData = {
-  name: string;
+export type TReviewFormData = {
+  author: string;
   message: string;
 };
-export type ReviewButtonProps = {
+
+export type TReviewButtonProps = {
   onClick: () => void;
+};
+
+export type TReviewResponse = {
+  data: TReviewMessage[];
+  hasMore?: boolean;
+  total?: number;
 };

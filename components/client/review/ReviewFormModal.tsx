@@ -4,11 +4,11 @@ import { useState, useRef, useEffect } from "react";
 import { FaPaperPlane } from "react-icons/fa";
 
 interface ReviewFormModalProps {
-  onSubmit: (formData: { name: string; message: string }) => void;
+  onSubmit: (formData: { author: string; message: string }) => void;
 }
 
 const ReviewFormModal = ({ onSubmit }: ReviewFormModalProps) => {
-  const [name, setName] = useState("");
+  const [author, setAuthor] = useState("");
   const [message, setMessage] = useState("");
   const [buttonSize, setButtonSize] = useState(48);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -21,9 +21,9 @@ const ReviewFormModal = ({ onSubmit }: ReviewFormModalProps) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name.trim() || !message.trim()) return;
-    onSubmit({ name, message });
-    setName("");
+    if (!author.trim() || !message.trim()) return;
+    onSubmit({ author, message });
+    setAuthor("");
     setMessage("");
   };
 
@@ -34,8 +34,8 @@ const ReviewFormModal = ({ onSubmit }: ReviewFormModalProps) => {
         <input
           type="text"
           id="modal-name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          value={author}
+          onChange={(e) => setAuthor(e.target.value)}
           className="w-full px-3 py-2 bg-gray-100 border border-gray-300 rounded-lg text-black focus:outline-none focus:border-blue-500 mb-1"
           placeholder="이름을 입력하세요"
           required
