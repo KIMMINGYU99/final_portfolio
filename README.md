@@ -1,4 +1,4 @@
-# KMK 포트폴리오
+# KMG 포트폴리오
 
 **Next.js 14**, **TypeScript**, **Tailwind CSS**로 제작한 개인 개발자 포트폴리오입니다.  
 프로젝트, 기술 스택을 소개하고 **Supabase** 기반 실시간 리뷰 보드를 제공합니다.
@@ -27,30 +27,37 @@
 ## 🚀 로컬 실행
 
 ### 1) 클론
+
 ```bash
 git clone https://github.com/KIMMINGYU99/final_portfolio.git
 cd final_portfolio
 ```
 
 ### 2) 의존성 설치
+
 ```bash
 npm install
 ```
 
 ### 3) 환경 변수 작성
+
 루트에 `.env.local` 파일을 만들고 아래 예시대로 값을 입력하세요.
+
 ```bash
 NEXT_PUBLIC_SUPABASE_URL=https://<your-project>.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=<anon-public-key>
 ```
 
 ### 4) 개발 서버 실행
+
 ```bash
 npm run dev
 ```
+
 기본 포트는 **3000**이며 변경하려면 `PORT` 환경 변수를 지정하면 됩니다.
 
 ### 5) 프로덕션 빌드 / 실행
+
 ```bash
 npm run build
 npm start     # PORT=3000 기본, 이미 사용 중이면 set PORT=3001 && npm start
@@ -71,8 +78,8 @@ public/       # Static assets
 
 ## 📝 스크립트
 
-| 명령어       | 설명               |
-| ------------ | ------------------ |
+| 명령어          | 설명               |
+| --------------- | ------------------ |
 | `npm run dev`   | 개발 서버 실행     |
 | `npm run build` | 프로덕션 빌드      |
 | `npm start`     | 프로덕션 서버 실행 |
