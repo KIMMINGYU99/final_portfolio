@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# KMK 포트폴리오
 
-## Getting Started
+**Next.js 14**, **TypeScript**, **Tailwind CSS**로 제작한 개인 개발자 포트폴리오입니다.  
+프로젝트, 기술 스택을 소개하고 **Supabase** 기반 실시간 리뷰 보드를 제공합니다.
 
-First, run the development server:
+![screenshot](./public/og.png)
+
+## ✨ 특징
+
+- 반응형 포트폴리오 페이지(About, Projects, Tech Stack)
+- **리뷰 보드**
+    - 페이지네이션이 적용된 무한 스크롤 리스트(`/review`)
+    - 최신 5개 리뷰를 불러오고 좋아요 수를 즉시 반영하는 모달 뷰어
+    - Supabase 채널을 통한 실시간 삽입 구독
+- 다크 모드 지원 및 Framer Motion 애니메이션
+- **Zustand** 기반 글로벌 상태 관리
+
+## 🛠️ 기술 스택
+
+| 분류 | 스택 |
+|----------|-------|
+| Framework | Next.js 14 (App Router) |
+| Styling   | Tailwind CSS, CSS Modules |
+| Database  | Supabase Postgres & Realtime |
+| State     | Zustand |
+| Animations| Framer Motion |
+| Lint / Format | ESLint, Prettier |
+
+## 🚀 로컬 실행
+
+1. 저장소를 클론하고 의존성을 설치합니다
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install   # or yarn / npm
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. 환경 변수 설정
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Create `.env.local` with your Supabase keys:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```env
+NEXT_PUBLIC_SUPABASE_URL=http://localhost:54321
+NEXT_PUBLIC_SUPABASE_ANON_KEY=xxxxxxxx
+```
 
-## Learn More
+3. 개발 서버 실행
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+pnpm dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+`http://localhost:3000`에서 확인하세요 ✨
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📂 프로젝트 구조 (일부)
 
-## Deploy on Vercel
+```
+components/
+  client/     # Client-side interactive components
+  server/     # Server / RSC components
+store/        # Zustand stores
+utils/        # API helpers (Supabase)
+public/       # Static assets
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📝 스크립트
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| 명령어 | 설명 |
+|----------------|-------------------------------------|
+| `pnpm dev`     | 개발 서버 실행                    |
+| `pnpm build`   | 프로덕션 빌드                    |
+| `pnpm start`   | 프로덕션 서버 실행             |
+| `pnpm lint`    | ESLint 실행                          |
+
+## 🖤 라이선스
+
+MIT © 2025 KMK
