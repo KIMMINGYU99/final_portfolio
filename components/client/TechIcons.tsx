@@ -1,6 +1,13 @@
 "use client";
 
-import { FaReact, FaHtml5, FaCss3Alt, FaJs, FaNodeJs, FaPaw } from "react-icons/fa";
+import {
+  FaReact,
+  FaHtml5,
+  FaCss3Alt,
+  FaJs,
+  FaNodeJs,
+  FaPaw,
+} from "react-icons/fa";
 import {
   SiNextdotjs,
   SiTypescript,
@@ -10,6 +17,8 @@ import {
   SiMysql,
   SiFirebase,
   SiSupabase,
+  SiExpo,
+  SiAxios,
 } from "react-icons/si";
 
 export const techIcons = {
@@ -27,4 +36,6 @@ export const techIcons = {
   Firebase: <SiFirebase className="text-yellow-500" />,
   Supabase: <SiSupabase className="text-green-500" />,
   Zustand: <FaPaw className="text-amber-700" />,
+  Expo: <SiExpo className="text-blue-500" />,
+  Axios: <SiAxios className="text-blue-500" />,
 };

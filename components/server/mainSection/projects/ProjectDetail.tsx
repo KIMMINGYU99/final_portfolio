@@ -3,7 +3,7 @@
 import { Project } from "@/types/project";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { useEffect, useState } from "react";
-import { getProjectById } from "@/utils/api";
+import { getProjectById } from "@/utils";
 import ProjectThumbnail from "./ProjectThumbnail";
 import ProjectHeader from "./ProjectHeader";
 import ProjectInfo from "./ProjectInfo";

@@ -1,7 +1,7 @@
 "use client";
 
 import { FaComment } from "react-icons/fa";
-import { ReviewButtonProps } from "@/types/review";
+import { TReviewButtonProps as ReviewButtonProps } from "@/types/review";
 
 const ReviewButton = ({ onClick }: ReviewButtonProps) => {
   return (

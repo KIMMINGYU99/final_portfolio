@@ -2,7 +2,12 @@
 
 import { motion } from "framer-motion";
 
-import ParticleBackground from "@/components/server/common/animation/ParticleBackground";
+import dynamic from "next/dynamic";
+
+const ParticleBackground = dynamic(
+  () => import("@/components/server/common/animation/ParticleBackground"),
+  { ssr: false }
+);
 import HeroContent from "./HeroContent";
 import { memo } from "react";
 

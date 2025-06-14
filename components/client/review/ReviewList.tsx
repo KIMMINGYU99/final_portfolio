@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import Card from "@/components/server/common/Card";
 import { motion } from "framer-motion";
 import { FaHeart, FaTrash } from "react-icons/fa";
-import { supabase, deleteReview, getReview, likeReview } from "@/utils/api";
+import { supabase, deleteReview, getReview, likeReview } from "@/utils";
 import { TReviewMessage } from "@/types/review";
 import { useReviewStore } from "@/store/reviewStore";
 

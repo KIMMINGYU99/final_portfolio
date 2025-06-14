@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 
 export type ParticleBackgroundProps = {
   className?: string;
+  isLoading?: boolean;
 };
 
 export type HeaderProps = {

@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useReviewStore } from "@/store/reviewStore";
 import { TReviewResponse } from "@/types/review";
-import { addReview, getReview } from "@/utils/api";
+import { addReview, getReview } from "@/utils";
 
 const ReviewForm = () => {
   const { setMessages } = useReviewStore();

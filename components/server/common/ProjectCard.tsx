@@ -15,7 +15,7 @@ const ProjectCard = ({ project, index, variants }: ProjectCardProps) => {
           <div className="w-full md:w-1/2">
             <div className="relative aspect-video">
               <motion.img
-                src={project.image}
+                src={project.thumbnail}
                 alt={project.title}
                 className="w-full h-full object-cover rounded-lg transition-transform duration-500 hover:scale-105"
                 variants={imageVariants}

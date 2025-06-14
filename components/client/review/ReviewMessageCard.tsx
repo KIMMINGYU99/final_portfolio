@@ -3,7 +3,7 @@
 import { TReviewMessage } from "@/types/review";
 import { FaHeart } from "react-icons/fa";
 import { useReviewStore } from "@/store/reviewStore";
-import { likeReview } from "@/utils/api";
+import { likeReview } from "@/utils";
 
 interface ReviewMessageCardProps {
   message: TReviewMessage;

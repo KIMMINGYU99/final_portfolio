@@ -7,7 +7,7 @@ import ReviewMessageList from "./ReviewMessageList";
 import ReviewFormModal from "./ReviewFormModal";
 import { useModal } from "@/hooks/useModal";
 import { useRouter } from "next/navigation";
-import { addReview, getModalReview } from "@/utils/api";
+import { addReview, getModalReview } from "@/utils";
 import { TReviewMessage } from "@/types/review";
 
 const ReviewModal = ({ isOpen, onClose }: TReviewModalProps) => {

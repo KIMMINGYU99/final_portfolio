@@ -1,27 +1,8 @@
-import { createClient } from "@supabase/supabase-js";
+import { supabase } from "@/utils/supabase/client";
 import { v4 as uuidv4 } from "uuid";
 import { Project } from "@/types/project";
 import { ProjectWithSkills } from "@/types/supabase";
-import { Database } from "@/types/supabase";
 import { TReviewMessage } from "@/types/review";
-
-if (!process.env.NEXT_PUBLIC_SUPABASE_URL) {
-  throw new Error("Missing env.NEXT_PUBLIC_SUPABASE_URL");
-}
-if (!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
-  throw new Error("Missing env.NEXT_PUBLIC_SUPABASE_ANON_KEY");
-}
-
-export const supabase = createClient<Database>(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1vb21uYWhtbXRnbXBuaWFkZ252Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0OTcxMDEyMiwiZXhwIjoyMDY1Mjg2MTIyfQ.rTQVb6i2c4E9bQCCLf1ZZXapOgRu4TUp3RWkLwlhEGQ",
-  {
-    auth: {
-      autoRefreshToken: false,
-      persistSession: false,
-    },
-  }
-);
 
 // 프로젝트 관련 API
 

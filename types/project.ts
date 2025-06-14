@@ -12,6 +12,7 @@ export type Project = {
   description: string;
   technologies: string[];
   thumbnail: string;
+  image?: string;
   github: string;
   demo: string;
   start_date: string;

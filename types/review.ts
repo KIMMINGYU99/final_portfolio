@@ -9,6 +9,7 @@ export type TReviewMessage = {
 export type TReviewMessageProps = {
   author: string;
   message: string;
+  date: string;
 };
 
 export type TReviewModalProps = {

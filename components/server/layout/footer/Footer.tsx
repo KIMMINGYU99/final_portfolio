@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import ProfileSection from "./ProfileSection";
 import TechStackSection from "@/components/client/TechStackSection";
 
-import { getSkillTypes, normalizeSkillName } from "@/utils/api";
+import { getSkillTypes, normalizeSkillName } from "@/utils";
 
 const Footer = () => {
   const [frontendSkills, setFrontendSkills] = useState<string[]>([]);

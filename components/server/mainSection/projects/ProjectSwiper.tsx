@@ -7,7 +7,7 @@ import ProjectCard from "./ProjectCard";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useEffect, useState } from "react";
-import { getProjects } from "@/utils/api";
+import { getProjects } from "@/utils";
 
 // Swiper 스타일
 import "swiper/css";

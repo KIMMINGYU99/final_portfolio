@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import Image from "next/image";
 import { useProjectStore } from "@/store/projectStore";
-import { getSkills, addProject, uploadProjectImage } from "@/utils/api";
+import { getSkills, addProject, uploadProjectImage } from "@/utils";
 
 const AddProject = () => {
   const router = useRouter();

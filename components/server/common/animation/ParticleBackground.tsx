@@ -2,20 +2,20 @@
 
 import { motion } from "framer-motion";
 import { ParticleBackgroundProps } from "@/types/layout";
-import { useMemo } from "react";
+import { useState } from "react";
 
 const PARTICLE_COUNT = 50;
-const PARTICLE_SIZE = 1;
 
 const ParticleBackground = ({ className = "" }: ParticleBackgroundProps) => {
-  const particles = useMemo(
-    () =>
+    // Generate particles only once to ensure consistent server/client renders
+  // Type for particle
+  type TParticle = { id: number; initialX: number; initialY: number };
+    const [particles] = useState<TParticle[]>(() =>
       Array.from({ length: PARTICLE_COUNT }, (_, i) => ({
         id: i,
         initialX: Math.random() * 100,
         initialY: Math.random() * 100,
-      })),
-    []
+      }))
   );
 
   return (

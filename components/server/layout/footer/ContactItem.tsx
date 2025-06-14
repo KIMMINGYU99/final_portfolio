@@ -1,7 +1,7 @@
 "use client";
 
 import RowBox from "../../common/RowBox";
-import { ContactItemProps } from "../../../types/footerType";
+import { TContactItemProps as ContactItemProps } from "@/types/footer";
 
 const ContactItem = ({
   icon,

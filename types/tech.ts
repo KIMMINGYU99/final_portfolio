@@ -24,4 +24,5 @@ export type SkillGridProps = {
 export type TechStackSectionProps = {
   frontendSkills: string[];
   backendSkills: string[];
+  techMap: TechStackMap;
 };

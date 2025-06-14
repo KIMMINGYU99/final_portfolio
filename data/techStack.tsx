@@ -67,4 +67,12 @@ export const techStackMap: TechStackMap = {
     icon: techIcons.Zustand,
     url: "https://zustand-demo.pmnd.rs/",
   },
+  Expo: {
+    icon: techIcons.Expo,
+    url: "https://docs.expo.dev/",
+  },
+  Axios: {
+    icon: techIcons.Axios,
+    url: "https://axios-http.com/",
+  },
 };
