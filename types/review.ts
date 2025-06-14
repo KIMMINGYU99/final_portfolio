@@ -15,6 +15,7 @@ export type TReviewMessageProps = {
 export type TReviewModalProps = {
   isOpen: boolean;
   onClose: () => void;
+  moreBtn: () => void;
 };
 
 export type TReviewFormData = {

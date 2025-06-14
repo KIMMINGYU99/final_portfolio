@@ -5,6 +5,7 @@ import ColumnBox from "@/components/server/common/ColumnBox";
 import { useModal } from "@/hooks/useModal";
 import ReviewButton from "@/components/client/review/ReviewButton";
 import ReviewModal from "@/components/client/review/ReviewModal";
+import { useRouter } from "next/navigation";
 
 const FloatingButtons = () => {
   const {
@@ -13,6 +14,8 @@ const FloatingButtons = () => {
     closeModal,
     mounted,
   } = useModal();
+
+  const router = useRouter();
 
   return (
     <>
@@ -29,7 +32,14 @@ const FloatingButtons = () => {
         </ColumnBox>
       </div>
       {mounted && (
-        <ReviewModal isOpen={isReviewModalOpen} onClose={closeModal} />
+        <ReviewModal
+          isOpen={isReviewModalOpen}
+          onClose={closeModal}
+          moreBtn={() => {
+            closeModal();
+            router.push("/review");
+          }}
+        />
       )}
     </>
   );

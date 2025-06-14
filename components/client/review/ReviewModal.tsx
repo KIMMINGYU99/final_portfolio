@@ -6,13 +6,12 @@ import { TReviewModalProps } from "@/types/review";
 import ReviewMessageList from "./ReviewMessageList";
 import ReviewFormModal from "./ReviewFormModal";
 import { useModal } from "@/hooks/useModal";
-import { useRouter } from "next/navigation";
 import { addReview, getModalReview } from "@/utils";
 import { TReviewMessage } from "@/types/review";
 
-const ReviewModal = ({ isOpen, onClose }: TReviewModalProps) => {
+const ReviewModal = ({ isOpen, onClose, moreBtn }: TReviewModalProps) => {
   const { mounted } = useModal();
-  const router = useRouter();
+
   const [messages, setMessages] = useState<TReviewMessage[]>([]);
 
   // 모달 내부에서 좋아요 클릭 시 즉시 UI에 반영
@@ -77,7 +76,7 @@ const ReviewModal = ({ isOpen, onClose }: TReviewModalProps) => {
           <div className="flex-1 flex flex-col justify-end">
             <ReviewMessageList messages={messages} onLike={handleModalLike} />
             <button
-              onClick={() => router.push("/review")}
+              onClick={moreBtn}
               className="w-40 mx-auto mt-4 mb-2 px-4 py-2 bg-gradient-to-r from-gray-700 to-gray-900 text-white rounded-lg hover:from-gray-800 hover:to-black transition-all duration-300"
             >
               더보러가기
